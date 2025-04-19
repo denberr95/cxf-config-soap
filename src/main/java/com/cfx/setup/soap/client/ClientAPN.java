@@ -79,6 +79,6 @@ public class ClientAPN {
         messaggioSII.setDatiSII(comunicazioneAnnullamentoPraticaDatiSIIType);
 
         DefaultResponseMessaggioSIIType soapResponse = this.apn.apn0200(messaggioSII);
-        this.logger.info("Chiamata APN.0200 eseguita con successo'");
+        this.logger.info("Chiamata APN.0200 eseguita con successo: '{}'", soapResponse);
     }
 }
