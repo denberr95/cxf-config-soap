@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:srv="http://www.sii.acquirenteunico.it/APR"
+	xmlns:msgSII="http://www.acquirenteunico.it/schemas/2010/SII_AU/MessaggioSII"
+	targetNamespace="http://www.sii.acquirenteunico.it/APR">
+
+
+	<wsdl:types>
+		<xs:schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<xs:import namespace="http://www.acquirenteunico.it/schemas/2010/SII_AU/MessaggioSII"
+				schemaLocation="../schemas/APR_msgSII.xsd"/>
+		</xs:schema>
+	</wsdl:types>
+
+	<!-- *** Messages *** -->
+
+	<wsdl:message name="EsitoAnnullamentoPraticaMessaggioSII">
+		<wsdl:part name="MessaggioSII" type="msgSII:EsitoAnnullamentoPraticaMessaggioSIIType"/>
+	</wsdl:message>
+<!--
+	<wsdl:message name="DefaultResponseMessaggioSII">
+		<wsdl:part name="MessaggioSII" type="msgSII:DefaultResponseMessaggioSIIType"/>
+	</wsdl:message>
+-->
+	<!-- *** PortTypes *** -->
+
+	<wsdl:portType name="APR">
+		
+		<wsdl:operation name="APR.0150">
+			<wsdl:input message="srv:EsitoAnnullamentoPraticaMessaggioSII"/>
+<!--
+			<wsdl:output message="srv:DefaultResponseMessaggioSII"/>
+-->		
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+	<!-- *** Bindings *** -->
+
+	<wsdl:binding name="APRBinding" type="srv:APR">
+
+		<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+		
+		<wsdl:operation name="APR.0150">
+			<soap:operation soapAction="APR.0150"/>
+			<wsdl:input>
+				<soap:body
+					namespace="http://www.sii.acquirenteunico.it/APR"
+					parts="MessaggioSII" use="literal"/>
+			</wsdl:input>
+<!--
+			<wsdl:output>
+				<soap:body
+					namespace="http://www.sii.acquirenteunico.it/APR"
+					parts="MessaggioSII" use="literal"/>
+			</wsdl:output>
+-->
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+
+	<!-- *** Services *** -->
+
+	<wsdl:service name="APRService">
+		<wsdl:port name="APRPort" binding="srv:APRBinding">
+			<soap:address location="http://localhost:8080/APR"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

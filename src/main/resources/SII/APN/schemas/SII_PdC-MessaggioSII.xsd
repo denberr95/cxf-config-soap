@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:sii="http://www.acquirenteunico.it/schemas/2010/SII_AU/MessaggioSII"
+	elementFormDefault="qualified" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd"
+	targetNamespace="http://www.acquirenteunico.it/schemas/2010/SII_AU/MessaggioSII">
+
+	<import namespace="http://ws-i.org/profiles/basic/1.1/xsd"
+		schemaLocation="SchemaEsterno-SwaRef.xsd"/>
+	
+	<complexType name="MessaggioSIIType">
+		<sequence>
+			<element name="RichiestaSII" type="sii:RichiestaSIIType"/>
+			<element name="DatiSII" type="anyType"/>
+			<element name="Allegati" type="sii:AllegatiType" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="MessaggioSIIFaultType">
+		<sequence>
+			<element name="MessaggioSII" type="sii:MessaggioSIIFaultBodyType"/>
+		</sequence>
+	</complexType>
+	<complexType name="MessaggioSIIFaultBodyType">
+		<sequence>
+			<element name="RichiestaSII" type="sii:RichiestaSIIType" minOccurs="0"/>
+			<element name="DatiSII" type="anyType"/>
+		</sequence>
+	</complexType>
+	
+
+	<complexType name="RichiestaSIIType">
+		<sequence>
+			<element name="AzioneRichiesta" type="sii:AzioneRichiestaType"/>
+			<element name="Erogatore" type="sii:UtenteType"/>
+			<element name="Fruitore" type="sii:UtenteType"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="AzioneRichiestaType">
+		<sequence>
+			<element name="Servizio" type="string"/>
+			<element name="Operazione" type="string"/>
+		</sequence>
+	</complexType>
+	
+	<simpleType name="UtenteType">
+		<restriction base="string">
+			<pattern value="[\w]+"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="AllegatoType">
+		<simpleContent>
+			<extension base="wsi:swaRef">
+				<attribute name="identificatore" type="string"
+					use="optional" />
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<complexType name="AllegatiType">
+		<sequence>
+			<element name="Allegato" type="sii:AllegatoType" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+
+</schema>
