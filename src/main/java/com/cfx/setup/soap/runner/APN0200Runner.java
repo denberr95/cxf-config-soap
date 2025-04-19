@@ -1,6 +1,6 @@
-package com.cfx.issue.soap.runner;
+package com.cfx.setup.soap.runner;
 
-import com.cfx.issue.soap.client.ClientAPN;
+import com.cfx.setup.soap.client.ClientAPN;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

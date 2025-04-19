@@ -1,7 +1,7 @@
-package com.cfx.issue.soap.config;
+package com.cfx.setup.soap.config;
 
 import jakarta.xml.ws.soap.SOAPBinding;
-import com.cfx.issue.soap.util.Constants;
+import com.cfx.setup.soap.util.Constants;
 import org.apache.cxf.configuration.security.AuthorizationPolicy;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.ext.logging.LoggingInInterceptor;
@@ -12,47 +12,47 @@ import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import it.mkt.hub.soap.schemas.v1.apn.APN;
-import it.mkt.hub.soap.schemas.v1.apn.APNService;
+import it.mkt.hub.soap.schemas.v1.apr.APR;
+import it.mkt.hub.soap.schemas.v1.apr.APRService;
 
 @Configuration(proxyBeanMethods = false)
-public class ClientAPNConfig {
+public class ClientAPRConfig {
 
-    @Value("${soap.client.apn.connection-timeout}")
+    @Value("${soap.client.apr.connection-timeout}")
     private long connectionTimeout = Constants.DEFAULT_CONNECTION_TIMEOUT;
 
-    @Value("${soap.client.apn.receive-timeout}")
+    @Value("${soap.client.apr.receive-timeout}")
     private long receiveTimeout = Constants.DEFAULT_RECEIVE_TIMEOUT;
 
-    @Value("${soap.client.apn.allow-chuncking}")
+    @Value("${soap.client.apr.allow-chuncking}")
     private boolean allowChunking = Constants.DEFAULT_ALLOW_CHUNKING;
 
-    @Value("${soap.client.apn.username}")
+    @Value("${soap.client.apr.username}")
     private String username = Constants.DEFAULT_USERNAME;
 
-    @Value("${soap.client.apn.password}")
+    @Value("${soap.client.apr.password}")
     private String password = Constants.DEFAULT_PASSWORD;
 
-    @Value("${soap.client.apn.endpoint}")
+    @Value("${soap.client.apr.endpoint}")
     private String endpoint = Constants.DEFAULT_URL;
 
     private final LoggingInInterceptor loggingInInterceptor;
     private final LoggingOutInterceptor loggingOutInterceptor;
 
-    public ClientAPNConfig(LoggingInInterceptor loggingInInterceptor,
+    public ClientAPRConfig(LoggingInInterceptor loggingInInterceptor,
             LoggingOutInterceptor loggingOutInterceptor) {
         this.loggingInInterceptor = loggingInInterceptor;
         this.loggingOutInterceptor = loggingOutInterceptor;
     }
 
     @Bean
-    APN apn() {
-        APNService service = new APNService(APNService.WSDL_LOCATION, APNService.SERVICE);
-        service.addPort(APNService.APNPort, SOAPBinding.SOAP11HTTP_BINDING, this.endpoint);
-        
-        APN apn = service.getPort(APNService.APNPort, APN.class);
+    APR apr() {
+        APRService service = new APRService(APRService.WSDL_LOCATION, APRService.SERVICE);
+        service.addPort(APRService.APRPort, SOAPBinding.SOAP11HTTP_BINDING, this.endpoint);
 
-        Client client = ClientProxy.getClient(apn);
+        APR apr = service.getPort(APRService.APRPort, APR.class);
+
+        Client client = ClientProxy.getClient(apr);
         client.getInInterceptors().add(this.loggingInInterceptor);
         client.getOutInterceptors().add(this.loggingOutInterceptor);
         client.getInFaultInterceptors().add(this.loggingInInterceptor);
@@ -72,6 +72,6 @@ public class ClientAPNConfig {
         http.setClient(httpClientPolicy);
         http.setAuthorization(authorizationPolicy);
 
-        return apn;
+        return apr;
     }
 }

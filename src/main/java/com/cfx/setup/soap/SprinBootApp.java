@@ -1,4 +1,4 @@
-package com.cfx.issue.soap;
+package com.cfx.setup.soap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

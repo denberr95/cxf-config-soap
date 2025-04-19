@@ -1,4 +1,4 @@
-package com.cfx.issue.soap.server;
+package com.cfx.setup.soap.server;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

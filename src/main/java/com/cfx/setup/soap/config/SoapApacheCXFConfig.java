@@ -1,4 +1,4 @@
-package com.cfx.issue.soap.config;
+package com.cfx.setup.soap.config;
 
 import org.apache.cxf.Bus;
 import org.apache.cxf.bus.spring.SpringBus;

@@ -1,6 +1,6 @@
-package com.cfx.issue.soap.config;
+package com.cfx.setup.soap.config;
 
-import com.cfx.issue.soap.server.WebServiceAPN;
+import com.cfx.setup.soap.server.WebServiceAPN;
 import org.apache.cxf.Bus;
 import org.apache.cxf.ext.logging.LoggingInInterceptor;
 import org.apache.cxf.ext.logging.LoggingOutInterceptor;

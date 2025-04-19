@@ -19,7 +19,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.cfx.issue.soap" level="TRACE" />
+    <logger name="com.cfx.setup.soap" level="TRACE" />
     <logger name="org.springframework" level="INFO" />
     <logger name="io.undertow" level="ERROR" />
     <logger name="org.apache.cxf" level="INFO" />

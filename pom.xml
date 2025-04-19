@@ -9,7 +9,7 @@
         <relativePath />
         <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.cfx.issue</groupId>
+    <groupId>com.cfx.setup</groupId>
     <artifactId>cxf-config-soap</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>cxf-config-soap</name>

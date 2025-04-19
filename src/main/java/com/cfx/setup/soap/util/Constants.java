@@ -1,4 +1,4 @@
-package com.cfx.issue.soap.util;
+package com.cfx.setup.soap.util;
 
 public class Constants {
     
