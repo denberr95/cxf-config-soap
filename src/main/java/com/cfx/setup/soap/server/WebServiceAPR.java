@@ -18,7 +18,7 @@ import it.mkt.hub.soap.schemas.v1.apr.strutturegenerali.IdentificativiRichiestaU
 @Component
 public class WebServiceAPR implements APR {
 
-    Logger logger = LoggerFactory.getLogger(WebServiceAPR.class);
+    private final Logger logger = LoggerFactory.getLogger(WebServiceAPR.class);
 
     @Override
     public void apr0150(EsitoAnnullamentoPraticaMessaggioSIIType messaggioSII) {

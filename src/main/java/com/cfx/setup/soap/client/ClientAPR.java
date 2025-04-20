@@ -25,8 +25,7 @@ import it.mkt.hub.soap.schemas.v1.apr.strutturegenerali.SettoreType;
 @Component
 public class ClientAPR {
 
-    Logger logger = LoggerFactory.getLogger(ClientAPR.class);
-
+    private final Logger logger = LoggerFactory.getLogger(ClientAPR.class);
     private final APR apr;
 
     public ClientAPR(APR apr) {

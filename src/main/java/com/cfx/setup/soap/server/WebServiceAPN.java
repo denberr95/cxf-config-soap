@@ -16,7 +16,7 @@ import it.mkt.hub.soap.schemas.v1.apn.strutturegenerali.IdentificativiRichiestaG
 @Component
 public class WebServiceAPN implements APN {
 
-    Logger logger = LoggerFactory.getLogger(WebServiceAPN.class);
+    private final Logger logger = LoggerFactory.getLogger(WebServiceAPN.class);
 
     @Override
     public DefaultResponseMessaggioSIIType apn0200(

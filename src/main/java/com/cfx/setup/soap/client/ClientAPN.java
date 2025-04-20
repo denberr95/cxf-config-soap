@@ -19,8 +19,7 @@ import it.mkt.hub.soap.schemas.v1.apn.strutturegenerali.SettoreType;
 @Component
 public class ClientAPN {
 
-    Logger logger = LoggerFactory.getLogger(ClientAPN.class);
-
+    private final Logger logger = LoggerFactory.getLogger(ClientAPN.class);
     private final APN apn;
 
     public ClientAPN(APN apn) {

@@ -1,8 +1,6 @@
 package com.cfx.setup.soap.runner;
 
 import com.cfx.setup.soap.client.ClientAPR;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
@@ -11,8 +9,6 @@ import org.springframework.stereotype.Component;
         matchIfMissing = false)
 @Component
 public class APR0150Runner implements CommandLineRunner {
-
-    Logger logger = LoggerFactory.getLogger(APR0150Runner.class);
 
     private final ClientAPR client;
 
