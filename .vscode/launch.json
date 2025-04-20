@@ -8,7 +8,7 @@
             "type": "java",
             "name": "Start SOAP Services",
             "request": "launch",
-            "mainClass": "com.cfx.setup.soap.SprinBootApp",
+            "mainClass": "com.cfx.setup.soap.SpringBootApp",
             "projectName": "cxf-config-soap",
             "vmArgs": "",
             "preLaunchTask": "build-app",
